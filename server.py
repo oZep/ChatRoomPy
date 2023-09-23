@@ -57,7 +57,7 @@ def recieve():
                     
 
         # create and start the thread
-        thread = threading.Thread(target=handle_client, arg=(client,))
+        thread = threading.Thread(target=handle_client, args=(client,))
         thread.start()
 
 
