@@ -32,6 +32,7 @@ def handle_client(client):
             alias = aliases[index]
             broadcast(f'{alias} has left the chatroom'.encode('uft-8')) # endcode to convert to bytes
             aliases.remove(alias)
+            print("Server has stopped")
             break
 
 def recieve():
