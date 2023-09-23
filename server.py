@@ -2,7 +2,7 @@ import threading
 import socket
 
 HOST = '127.0.0.1' # local host
-PORT = 59000
+PORT = 6789
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 
@@ -30,7 +30,7 @@ def handle_client(client):
             clients.remove(client)
             client.close()
             alias = aliases[index]
-            broadcast(f'{alias} has left the chatroom'.encode('uft-8')) # endcode to convert to bytes
+            broadcast(f'{alias} has left the chatroom'.encode('utf-8')) # endcode to convert to bytes
             aliases.remove(alias)
             print("Server has stopped")
             break
@@ -51,9 +51,9 @@ def recieve():
         # append alias and client to the list
         aliases.append(alias)
         clients.append(client)
-        print(f'The alias of this client is {alias}'.encode('uft-8'))
-        broadcast(f'{alias} has joined the chatroom'.encode('uft-8'))
-        client.send('you are connected!'.encode('uft-8'))
+        print(f'The alias of this client is {alias}'.encode('utf-8'))
+        broadcast(f'{alias} has joined the chatroom'.encode('utf-8'))
+        client.send('you are connected!'.encode('utf-8'))
                     
 
         # create and start the thread

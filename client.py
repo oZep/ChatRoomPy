@@ -4,7 +4,7 @@ import socket
 alias = input('Choose an alias >>>')
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-client.connect(('123.0.0.1', 59000))
+client.connect(('127.0.0.1', 6789))
 
 def client_recieve():
     '''
