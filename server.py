@@ -10,6 +10,18 @@ server.listen()
 clients = []
 aliases = []
 
+
+chatpy_art = '''
+  _____   _____   _____   _      _
+ / ____| | ____| | ____| | |    | |     ||
+| |       | |    | |___  | |    | |    / \\
+| |       | |    |     | |  \\\\  | |   /___\\
+| |____   | |    | |____ | |  \\ | |  /     \\
+ \_____| |_____|  \_____||_|    |_| /       \\
+                                 
+'''
+
+
 def broadcast(message):
     '''
     broadcasts message to all clients
@@ -40,6 +52,7 @@ def recieve():
     main function to recieve client connections
     '''
     while True:
+
         print('Server is running and listening...')
         # let server accept any incomming connections
         client, address = server.accept()
@@ -53,6 +66,7 @@ def recieve():
         clients.append(client)
         print(f'The alias of this client is {alias}'.encode('utf-8'))
         broadcast(f'{alias} has joined the chatroom'.encode('utf-8'))
+        client.send(f'{chatpy_art}'.encode('utf-8'))
         client.send('you are connected!'.encode('utf-8'))
                     
 
